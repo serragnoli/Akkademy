@@ -1,14 +1,13 @@
 package com.akkademy.messages
 
 import akka.actor.ActorSystem
-
-import scala.concurrent.Future
-import scala.language.postfixOps
 import akka.pattern.ask
 import akka.util.Timeout
 import org.scalatest.{FunSpecLike, Matchers}
 
+import scala.concurrent.Future
 import scala.concurrent.duration._
+import scala.language.postfixOps
 import scala.util.{Failure, Success}
 
 class WithoutRedundancyTest extends FunSpecLike with Matchers {
@@ -44,6 +43,52 @@ class WithoutRedundancyTest extends FunSpecLike with Matchers {
         case Success(s) => println("Yay " + s)
         case Failure(e) => println("Shit " + e)
       })
+    }
+
+    it("should recover from failure") {
+      askPong("causeError").recover({
+        case t => {
+          println("Returning default")
+          "default"
+        }
+      })
+    }
+
+    it("should recover by invoking another another async call") {
+      askPong("causeError").recoverWith({
+        case t => askPong("Ping");
+      })
+    }
+
+    it("should combine futures") {
+      val f1 = Future {
+        12
+      }
+      val f2 = Future {
+        0
+      }
+
+      val futureDivision = {
+        for (
+          res1 <- f1;
+          res2 <- f2
+        ) yield res1 / res2
+      }
+
+      futureDivision.onComplete({
+        case Success(res) => println("Division of 2 futures is: " + res)
+        case Failure(ex) => println("Exception dude: " + ex)
+      })
+    }
+
+    it("should make async calls for each member in a collection") {
+      // Here we end up with a list of Futures. BAD!!!
+      val listOfFutures: List[Future[String]] = List("Ping", "Ping", "Ping", "CauseError").map(x => askPong(x))
+      println("Lots of futures: " + listOfFutures)
+
+      // Let's convert the List[Future[String]] to Future[List[String]]
+      val futureOfList: Future[List[String]] = Future.sequence(listOfFutures)
+      println("Future of list: " + futureOfList)
     }
   }
 
