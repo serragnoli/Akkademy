@@ -2,6 +2,7 @@ package com.akkademy.messages
 
 import akka.actor.ActorSystem
 import akka.testkit.TestActorRef
+import com.akkademy.AkkademyDb
 import org.scalatest.{BeforeAndAfterEach, FunSpecLike, Matchers}
 
 class AkkademyDbTest extends FunSpecLike with Matchers with BeforeAndAfterEach {
