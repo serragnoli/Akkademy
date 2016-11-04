@@ -14,8 +14,6 @@ class PongActorTest extends FunSpecLike with Matchers with BeforeAndAfterEach {
 
         actorRef ! "Ping"
 
-        println(">>>>>>>" + actorRef.path)
-
         val pongActor = actorRef.underlyingActor
       }
     }
