@@ -1,7 +1,6 @@
 package com.akkademy.messages
 
 import akka.actor.Actor
-import akka.actor.Actor.Receive
 import akka.event.Logging
 
 import scala.collection.mutable
