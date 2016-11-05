@@ -1,6 +1,6 @@
 package com.akkademy
 
-import akka.actor.{Actor, Status}
+import akka.actor.{Actor, Props, Status}
 import akka.event.Logging
 import com.akkademy.messages.{GetRequest, KeyNotFoundException, SetRequest}
 
@@ -25,5 +25,11 @@ class AkkademyDb extends Actor {
     case o =>
       log.info("received unknown message: {}", o)
       Status.Failure(new ClassNotFoundException)
+  }
+}
+
+object AkkademyDb {
+  def props: Props = {
+    Props(classOf[AkkademyDb])
   }
 }

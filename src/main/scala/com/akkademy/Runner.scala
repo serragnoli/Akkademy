@@ -3,12 +3,9 @@ package com.akkademy
 import akka.actor.{ActorRef, ActorSystem}
 import akka.pattern.ask
 import akka.util.Timeout
-import com.akkademy.messages.PongActor
-import scala.language.postfixOps
-
-import scala.concurrent.Future
 
 import scala.concurrent.duration._
+import scala.language.postfixOps
 
 object Runner {
 
@@ -16,8 +13,7 @@ object Runner {
     implicit val timeout = Timeout(1 second)
     val system = ActorSystem("AkkademySystem")
 
-    val pongActor: ActorRef = system.actorOf(PongActor props)
+    system.actorOf(AkkademyDb props, "akkademy-db")
 
-    val future = pongActor ? "Ping"
   }
 }
