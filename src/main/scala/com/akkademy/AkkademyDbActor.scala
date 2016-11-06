@@ -2,7 +2,7 @@ package com.akkademy
 
 import akka.actor.{Actor, Props, Status}
 import akka.event.Logging
-import com.akkademy.messages.{GetRequest, KeyNotFoundException, SetRequest}
+import com.akkademy.messages.{GetRequest, KeyNotFoundException, SetIfNotExistsRequest, SetRequest}
 
 import scala.collection.mutable
 
@@ -22,6 +22,9 @@ class AkkademyDbActor extends Actor {
         case Some(x) => sender() ! x
         case None => sender() ! Status.Failure(KeyNotFoundException(key))
       }
+    case SetIfNotExistsRequest(key, value) =>
+      log.info("received SetIfNotExistsRequest - key: {} value {}", key, value)
+      sender() ! map.getOrElseUpdate(key, value)
     case o =>
       log.info("received unknown message: {}", o)
       Status.Failure(new ClassNotFoundException)
