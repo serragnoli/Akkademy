@@ -4,6 +4,7 @@ import akka.actor.ActorSystem
 import org.scalatest.{FunSpecLike, Matchers}
 import akka.pattern.ask
 import akka.util.Timeout
+import com.akkademy.PongActor
 
 import scala.concurrent.Await
 import scala.concurrent.duration._

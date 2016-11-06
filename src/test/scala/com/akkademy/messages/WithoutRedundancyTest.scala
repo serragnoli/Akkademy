@@ -3,6 +3,7 @@ package com.akkademy.messages
 import akka.actor.ActorSystem
 import akka.pattern.ask
 import akka.util.Timeout
+import com.akkademy.PongActor
 import org.scalatest.{FunSpecLike, Matchers}
 
 import scala.concurrent.Future

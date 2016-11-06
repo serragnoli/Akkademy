@@ -1,4 +1,4 @@
-package com.akkademy.messages
+package com.akkademy
 
 import akka.actor.{Actor, Props, Status}
 

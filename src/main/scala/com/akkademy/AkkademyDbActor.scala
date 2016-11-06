@@ -6,7 +6,7 @@ import com.akkademy.messages.{GetRequest, KeyNotFoundException, SetRequest}
 
 import scala.collection.mutable
 
-class AkkademyDb extends Actor {
+class AkkademyDbActor extends Actor {
   val map = new mutable.HashMap[String, String]
   val log = Logging(context.system, this)
 
@@ -28,8 +28,8 @@ class AkkademyDb extends Actor {
   }
 }
 
-object AkkademyDb {
+object AkkademyDbActor {
   def props: Props = {
-    Props(classOf[AkkademyDb])
+    Props(classOf[AkkademyDbActor])
   }
 }

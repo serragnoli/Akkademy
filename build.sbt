@@ -10,7 +10,6 @@ libraryDependencies ++= Seq(
   "com.typesafe.akka" %% "akka-actor" % "2.4.12",
   "com.typesafe.akka" %% "akka-remote" % "2.4.12",
   "com.typesafe.akka" %% "akka-testkit" % "2.4.12",
-  "com.github.romix.akka" %% "akka-kryo-serialization" % "0.5.0",
   "org.scalatest" %% "scalatest" % "3.0.0" % "test"
 )
 

@@ -2,6 +2,7 @@ package com.akkademy.messages
 
 import akka.actor.ActorSystem
 import akka.testkit.TestActorRef
+import com.akkademy.PongActor
 import org.scalatest.{BeforeAndAfterEach, FunSpecLike, FunSuite, Matchers}
 
 class PongActorTest extends FunSpecLike with Matchers with BeforeAndAfterEach {
