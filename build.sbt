@@ -13,8 +13,8 @@ libraryDependencies ++= Seq(
   "org.scalatest" %% "scalatest" % "3.0.0" % "test"
 )
 
-mappings in(Compile, packageBin) ~= {
-  _.filterNot {
-    case (_, myName) => Seq("application.conf").contains(myName)
-  }
-}
+//mappings in(Compile, packageBin) ~= {
+//  _.filterNot {
+//    case (_, myName) => Seq("application.conf").contains(myName)
+//  }
+//}
