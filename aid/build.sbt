@@ -1,9 +1,9 @@
-name := "akkademy-db-client"
+name := "akkademaid"
 
 // Change this to another test framework if you prefer
-libraryDependencies ++= Seq(
-  "com.akkademy" %% "akkademy-common" % "0.0.1-SNAPSHOT"
-)
+//libraryDependencies ++=Seq(
+//  "org.scalatest" %% "scalatest" % "2.2.4" % "test"
+//)
 
 // Uncomment to use Akka
 //libraryDependencies += "com.typesafe.akka" %% "akka-actor" % "2.3.11"
