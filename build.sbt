@@ -24,3 +24,4 @@ lazy val client = project
 
 lazy val aid = project
   .settings(commonSettings: _*)
+  .dependsOn(common)

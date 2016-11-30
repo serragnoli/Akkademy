@@ -11,3 +11,9 @@ case class SetIfNotExistsRequest(key: String, value: String)
 case class KeyNotFoundException(key: String) extends Exception
 
 case class UnknownReverseTextMessageException() extends Exception
+
+case class ParseArticle(uri: String)
+
+case class HttpResponse(rawArticle: String)
+
+case class ParseHtmlArticle(uri: String, rawArticle: String)

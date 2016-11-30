@@ -1,6 +1,6 @@
-package com.example
+package com.akkademy
 
-object Hello {
+object AidRunner {
   def main(args: Array[String]): Unit = {
     println("Hello, world!")
   }
