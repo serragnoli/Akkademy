@@ -4,7 +4,7 @@ name := "akkademy-db"
 // libraryDependencies += "org.scalactic" %% "scalactic" % "3.0.0"
 libraryDependencies ++= Seq(
   "com.typesafe.akka" %% "akka-testkit" % "2.4.12",
-  "com.akkademy" %% "akkademy-common" % "0.0.1-SNAPSHOT"
+  "com.akkademy" %% "akkademy-common" % "0.0.2-SNAPSHOT"
 )
 
 //mappings in(Compile, packageBin) ~= {
